@@ -84,7 +84,7 @@ $('#newPost').click(function(p2){
 $('#replacePost').click(function(p2){
 	$.ajax({
 		method: 'PUT',
-		url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/12',
+		url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',
 		data: {
 			userID: 85,
 			id: 21,
@@ -109,7 +109,7 @@ $('#replacePost').click(function(p2){
 $('#updatePost').click(function(p2){
 	$.ajax({
 		method: 'PATCH',
-		url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/12',
+		url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',
 		data: {
 		
 			title: "Patched",
@@ -128,6 +128,22 @@ $('#updatePost').click(function(p2){
 })
 
 //8 Delete the post with id of 12 and render a success message
+$('#deletePost').click(function(p2){
+	$.ajax({
+		method: 'DELETE',
+		url: 'https://my-json-server.typicode.com/zachhall/WIN2020_AjaxPromises/posts/14',	 
+		complete: function(response){
+			console.log(response.statusText);
+		}
+	}, function(p2){
+			console.log(p2);
+				list1.empty();
+				var myList2 = $('<li></li>');
+				myList2.text(JSON.stringify(p2));
+				list1.append(myList2);
+			}
+	)
+})
 
 //9 Display a list of posts
 
